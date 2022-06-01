@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import testweb.model.User;
 import testweb.service.UserService;
 
@@ -25,10 +26,7 @@ public class UserController {
     }
 
     @PostMapping
-    public String add(@ModelAttribute("user") User user,
-                      @RequestParam("name") String name,
-                      @RequestParam("age") int age,
-                      @RequestParam("email") String email) {
+    public String add(@ModelAttribute("user") User user) {
         userService.add(user);
         return "redirect:/";
     }
